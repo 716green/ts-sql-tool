@@ -1,0 +1,8 @@
+{
+  "name": "ts-sql",
+  "template": "Default",
+  "isConfigured": {
+    "client": false,
+    "server": false
+  }
+}
