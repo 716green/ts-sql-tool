@@ -29,11 +29,9 @@ app.get('/', (__req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
 });
 
-app.get('api/sql', (req, __res) => {
+app.post('/api/sql', (req, res) => {
   let { people: AllSimpsons, places: AllPlaces } = req.body
 
-
-  
   const simpsons = {
     people: AllSimpsons, places: AllPlaces
   }
@@ -49,7 +47,7 @@ app.get('api/sql', (req, __res) => {
 console.log(AllSimpsons)
 console.log(AllPlaces)
   
-// res.send(data)
+res.send(AllSimpsons)
 })
 
 // Listening to port

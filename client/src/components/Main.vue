@@ -19,17 +19,23 @@
         <br />
         <button class="btn blue" @click="this.sendData">Send Data</button>
       </div>
+      <hr />
+      <div class="results">
+        {{ this.allSimpsons }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import axios from "axios";
 
 export default {
-  name: "main",
+  name: "Main",
   data() {
     return {
+      allSimpsons: {},
       people: [
         { id: 1, firstName: "Bart", lastName: "Simpson", isChild: true },
         { id: 2, firstName: "Lisa", lastName: "Simpson", isChild: true },
@@ -67,6 +73,7 @@ export default {
       axios
         .post(url, params)
         .then((res) => {
+          this.allSimpsons = res.data;
           console.log(res);
         })
         .catch((err) => {

@@ -16,13 +16,14 @@ app.use(express_1.default.static(__dirname + '/views/'));
 app.get('/', (__req, res) => {
     res.sendFile(path_1.default.join(__dirname, '..', 'views', 'index.html'));
 });
-app.get('api/sql', (req, __res) => {
+app.post('/api/sql', (req, res) => {
     let { people: AllSimpsons, places: AllPlaces } = req.body;
     const simpsons = {
         people: AllSimpsons, places: AllPlaces
     };
     console.log(AllSimpsons);
     console.log(AllPlaces);
+    res.send(AllSimpsons);
 });
 app.listen(port);
 console.log(`Listening On http://localhost:${port}/api`);
